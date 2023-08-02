@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Selection Box</title>
+</head>
+<body>
+<h2>Country Selection Box</h2>
+<select id="countries">
+<option value="india">India</option>
+<option value="china">China</option>
+<option value="united states">United States</option>
+<option value="france">France</option>
+<option value="germany">Germany</option>
+</select>
+<p>Capital: <span id="capital"></span></p>
+<script>
+var countries = document.getElementById("countries");
+var capital = document.getElementById("capital");
+
+countries.addEventListener("change", function() {
+  var selectedCountry = countries.options[countries.selectedIndex].value;
+  capital.innerHTML = "Capital of " + selectedCountry + ": " + getCapital(selectedCountry);
+});
+
+function getCapital(country) {
+  switch (country) {
+    case "india":
+      return "New Delhi";
+    case "china":
+      return "Beijing";
+    case "united states":
+      return "Washington, D.C.";
+    case "france":
+      return "Paris";
+    case "germany":
+      return "Berlin";
+    default:
+      return "Unknown";
+  }
+}
+</script>
+</body>
+</html>
